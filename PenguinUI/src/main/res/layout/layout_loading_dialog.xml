@@ -1,116 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Layout para Info Dialog - Diálogo de solo información con botón OK -->
+<!-- Layout para Loading Dialog - Spinner animado con gradiente -->
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/infoDialogContainer"
+    android:id="@+id/loadingDialogContainer"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:minWidth="320dp"
     app:cardBackgroundColor="@color/dialog_bg_secondary"
     app:cardCornerRadius="24dp"
     app:cardElevation="8dp"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
-        android:layout_width="320dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="0dp">
+        android:padding="32dp"
+        android:gravity="center_horizontal">
 
-        <!-- Header con ícono -->
-        <LinearLayout
-            android:id="@+id/infoHeaderContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center_horizontal"
-            android:paddingTop="24dp"
-            android:paddingBottom="16dp">
+        <!-- Spinner de carga con gradiente animado -->
+        <FrameLayout
+            android:layout_width="64dp"
+            android:layout_height="64dp">
 
-            <!-- Ícono del diálogo (círculo con gradiente) -->
-            <ImageView
-                android:id="@+id/infoDialogIcon"
+            <ProgressBar
+                android:id="@+id/loadingSpinner"
+                style="?android:attr/progressBarStyleLarge"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:background="@drawable/bg_dialog_icon"
-                android:padding="16dp"
-                android:contentDescription="Info icon"
+                android:layout_gravity="center"
+                android:indeterminate="true"
+                android:indeterminateDrawable="@drawable/progress_spinner_gradient"
                 android:visibility="visible" />
 
-            <!-- Título del diálogo -->
-            <TextView
-                android:id="@+id/infoDialogTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:text="Información"
-                android:textColor="@color/dialog_text_primary"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/comic_neu_bold"
-                android:gravity="center"
-                android:maxLines="2"
-                android:ellipsize="end" />
+            <ImageView
+                android:id="@+id/loadingIcon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_loading"
+                android:contentDescription="Loading icon"
+                android:visibility="visible" />
 
-        </LinearLayout>
+        </FrameLayout>
 
-        <!-- Divider línea decorativa cyan -->
+        <!-- Mensaje principal -->
+        <TextView
+            android:id="@+id/loadingMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Cargando..."
+            android:textColor="@color/loading_text_color"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/comic_neu_bold"
+            android:gravity="center"
+            android:maxLines="2"
+            android:ellipsize="end" />
+
+        <!-- Mensaje secundario opcional -->
+        <TextView
+            android:id="@+id/loadingSubMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text=""
+            android:textColor="@color/dialog_text_secondary"
+            android:textSize="13sp"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:visibility="gone" />
+
+        <!-- Línea de acento decorativa -->
         <View
+            android:id="@+id/loadingAccentLine"
             android:layout_width="60dp"
             android:layout_height="3dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/bg_dialog_accent_line" />
-
-        <!-- Contenedor del mensaje -->
-        <TextView
-            android:id="@+id/infoDialogMessage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="24dp"
-            android:text="Este es un mensaje informativo. Aquí va la descripción detallada de la información que se desea comunicar."
-            android:textColor="@color/dialog_text_secondary"
-            android:textSize="15sp"
-            android:lineSpacingExtra="4dp"
-            android:gravity="center"
-            android:fontFamily="sans-serif"
-            android:minLines="2"
-            android:maxLines="6" />
-
-        <!-- Botón OK -->
-        <LinearLayout
-            android:id="@+id/infoButtonContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:paddingBottom="20dp"
-            android:gravity="center">
-
-            <!-- Botón OK (único botón) -->
-            <Button
-                android:id="@+id/btnOk"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:maxWidth="200dp"
-                android:minWidth="120dp"
-                android:background="@drawable/bg_dialog_button_primary"
-                android:text="Aceptar"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/comic_neu_bold"
-                android:textAllCaps="false"
-                android:elevation="4dp" />
-
-        </LinearLayout>
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_loading_accent_line" />
 
     </LinearLayout>
 
