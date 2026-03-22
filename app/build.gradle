@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace 'com.yhonam.penguinui'
+    namespace 'com.yhonam.penguinui.demo'
     compileSdk {
         version = release(36) {
             minorApiLevel = 1

@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Colores de Penguin UI usados en la demo -->
+    <color name="dialog_accent_cyan">#00D9FF</color>
+    <color name="toast_success_accent">#00FF88</color>
+    <color name="toast_error_accent">#FF2E63</color>
 </resources>
