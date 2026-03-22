@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Layout para cada item del Bottom Sheet -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bottomSheetItemContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingStart="16dp"
+    android:paddingTop="14dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="14dp"
+    android:gravity="center_vertical"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!-- Ícono del item -->
+    <ImageView
+        android:id="@+id/bottomSheetItemIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:padding="8dp"
+        android:contentDescription="Item icon"
+        android:src="@drawable/ic_toast_info" />
+
+    <!-- Texto del item -->
+    <TextView
+        android:id="@+id/bottomSheetItemText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Opción del menú"
+        android:textColor="@color/bottom_sheet_text_primary"
+        android:textSize="15sp"
+        android:fontFamily="sans-serif"
+        android:maxLines="2"
+        android:ellipsize="end" />
+
+    <!-- Flecha indicadora (opcional) -->
+    <ImageView
+        android:id="@+id/bottomSheetItemArrow"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_arrow_right"
+        android:contentDescription="Arrow"
+        android:visibility="gone"
+        android:alpha="0.5" />
+
+</LinearLayout>

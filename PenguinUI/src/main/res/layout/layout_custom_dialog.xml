@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Layout base para diálogos personalizados -->
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dialogContainer"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:minWidth="320dp"
+    app:cardBackgroundColor="@color/dialog_bg_secondary"
+    app:cardCornerRadius="24dp"
+    app:cardElevation="8dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="0dp">
+
+        <!-- Header con ícono y título -->
+        <LinearLayout
+            android:id="@+id/headerContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingTop="24dp"
+            android:paddingBottom="16dp">
+
+            <!-- Ícono del diálogo (círculo con gradiente) -->
+            <ImageView
+                android:id="@+id/dialogIcon"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@drawable/bg_dialog_icon"
+                android:padding="16dp"
+                android:contentDescription="Dialog icon"
+                android:visibility="visible" />
+
+            <!-- Título del diálogo -->
+            <TextView
+                android:id="@+id/dialogTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Título del Diálogo"
+                android:textColor="@color/dialog_text_primary"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/comic_neu_bold"
+                android:gravity="center"
+                android:maxLines="2"
+                android:ellipsize="end" />
+
+        </LinearLayout>
+
+        <!-- Divider línea decorativa cyan -->
+        <View
+            android:layout_width="60dp"
+            android:layout_height="3dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_dialog_accent_line" />
+
+        <!-- Contenedor del mensaje -->
+        <TextView
+            android:id="@+id/dialogMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            android:text="Este es el mensaje del diálogo. Aquí va la descripción de la acción a confirmar."
+            android:textColor="@color/dialog_text_secondary"
+            android:textSize="15sp"
+            android:lineSpacingExtra="4dp"
+            android:gravity="center"
+            android:fontFamily="sans-serif"
+            android:minLines="2"
+            android:maxLines="4" />
+
+        <!-- Contenedor de botones -->
+        <LinearLayout
+            android:id="@+id/buttonContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="20dp"
+            android:gravity="center"
+            android:weightSum="2">
+
+            <!-- Botón secundario (Cancelar) -->
+            <Button
+                android:id="@+id/btnNegative"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:minWidth="100dp"
+                android:background="@drawable/bg_dialog_button_secondary"
+                android:text="Cancelar"
+                android:textColor="@color/dialog_accent_cyan"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/comic_neu_bold"
+                android:textAllCaps="false" />
+
+            <!-- Botón primario (Confirmar) -->
+            <Button
+                android:id="@+id/btnPositive"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:minWidth="100dp"
+                android:background="@drawable/bg_dialog_button_primary"
+                android:text="Confirmar"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/comic_neu_bold"
+                android:textAllCaps="false"
+                android:elevation="4dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

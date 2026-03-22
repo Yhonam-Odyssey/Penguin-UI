@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ícono de carga genérico (círculo con puntos) -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="@color/dialog_accent_cyan">
+
+    <!-- Círculo exterior -->
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2zM12,20c-4.42,0 -8,-3.58 -8,-8s3.58,-8 8,-8 8,3.58 8,8 -3.58,8 -8,8z"/>
+
+    <!-- Puntos animados (simulados) -->
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M12,6c-0.83,0 -1.5,-0.67 -1.5,-1.5S11.17,3 12,3s1.5,0.67 1.5,1.5S12.83,6 12,6z"/>
+
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M12,18c-0.83,0 -1.5,0.67 -1.5,1.5S11.17,21 12,21s1.5,-0.67 1.5,-1.5S12.83,18 12,18z"/>
+
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M6,12c0,0.83 0.67,1.5 1.5,1.5S9,12.83 9,12S8.33,10.5 7.5,10.5S6,11.17 6,12z"/>
+
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M18,12c0,-0.83 -0.67,-1.5 -1.5,-1.5S15,11.17 15,12s0.67,1.5 1.5,1.5S18,12.83 18,12z"/>
+</vector>

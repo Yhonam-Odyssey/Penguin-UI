@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Animación de salida para Bottom Sheet - Slide hacia abajo -->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="250"
+    android:interpolator="@android:interpolator/accelerate_quad">
+
+    <!-- Slide hacia abajo -->
+    <translate
+        android:fromYDelta="0%"
+        android:toYDelta="100%" />
+
+    <!-- Fade out -->
+    <alpha
+        android:fromAlpha="1.0"
+        android:toAlpha="0.0" />
+</set>

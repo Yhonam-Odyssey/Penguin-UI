@@ -1,0 +1,41 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.ECOLIMSAC" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.ECOLIMSAC" parent="Base.Theme.ECOLIMSAC" />
+
+    <!-- ============================================= -->
+    <!-- CUSTOM DIALOG THEME -->
+    <!-- ============================================= -->
+
+    <!-- Tema base para el DialogFragment -->
+    <style name="CustomDialogTheme" parent="Theme.AppCompat.Dialog">
+        <!-- Fondo transparente para usar nuestro drawable personalizado -->
+        <item name="android:background">@android:color/transparent</item>
+        <!-- Sin título nativo -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- Sin marco nativo -->
+        <item name="android:windowFrame">@null</item>
+        <!-- Flotante -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- Contenido detrás del diálogo -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- Sin borde nativo -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <!-- Animaciones para el diálogo -->
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/dialog_scale_enter</item>
+        <item name="android:windowExitAnimation">@anim/dialog_scale_exit</item>
+    </style>
+
+    <!-- Animaciones para el Bottom Sheet -->
+    <style name="BottomSheetAnimation">
+        <item name="android:windowEnterAnimation">@anim/bottom_sheet_slide_up</item>
+        <item name="android:windowExitAnimation">@anim/bottom_sheet_slide_down</item>
+    </style>
+</resources>

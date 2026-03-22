@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ============================================= -->
+    <!-- COLORES BASE -->
+    <!-- ============================================= -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primary">#2E7D32</color>
+    <color name="primary_dark">#1B5E20</color>
+    <color name="accent">#4CAF50</color>
+    <color name="background">#F5F5F5</color>
+    <color name="gray">#9E9E9E</color>
+    <color name="red">#F44336</color>
+    <color name="green">#4CAF50</color>
+    <color name="orange">#FF9800</color>
+    <color name="angry_blue">#00BBFF</color>
+    <color name="blue">#283593</color>
+
+    <!-- ============================================= -->
+    <!-- COLORES PERSONALIZADOS - TEMA OSCURO ECOLIMSAC -->
+    <!-- ============================================= -->
+
+    <!-- Colores base del tema oscuro -->
+    <color name="dialog_bg_primary">#1A1A2E</color>        <!-- Dark navy - fondo principal -->
+    <color name="dialog_bg_secondary">#16213E</color>      <!-- Navy oscuro - fondo cards/dialogs -->
+    <color name="dialog_bg_surface">#0F3460</color>        <!-- Azul profundo - elementos superficie -->
+
+    <!-- Colores de acento vibrantes -->
+    <color name="dialog_accent_cyan">#00D9FF</color>       <!-- Cyan eléctrico - principal accent -->
+    <color name="dialog_accent_purple">#7B2CBF</color>     <!-- Púrpura vibrante - secundario -->
+    <color name="dialog_accent_purple_light">#9D4EDD</color> <!-- Púrpura claro - gradientes -->
+
+    <!-- Colores de texto -->
+    <color name="dialog_text_primary">#FFFFFF</color>      <!-- Blanco - texto principal -->
+    <color name="dialog_text_secondary">#B0B0B0</color>    <!-- Gris claro - texto secundario -->
+    <color name="dialog_text_muted">#6C757D</color>        <!-- Gris oscuro - texto deshabilitado -->
+
+    <!-- Colores de estado -->
+    <color name="dialog_success">#00FF88</color>           <!-- Verde neón - éxito -->
+    <color name="dialog_error">#FF2E63</color>             <!-- Rosa rojizo - error -->
+    <color name="dialog_warning">#FFB703</color>           <!-- Ámbar - advertencia -->
+    <color name="dialog_info">#00D9FF</color>              <!-- Cyan - información -->
+
+    <!-- Colores de botones -->
+    <color name="dialog_button_primary_start">#7B2CBF</color>  <!-- Inicio gradiente botón principal -->
+    <color name="dialog_button_primary_end">#00D9FF</color>    <!-- Fin gradiente botón principal -->
+    <color name="dialog_button_secondary_bg">#0F3460</color>   <!-- Fondo botón secundario -->
+    <color name="dialog_button_secondary_border">#00D9FF</color> <!-- Borde botón secundario -->
+
+    <!-- Efectos -->
+    <color name="dialog_glow_shadow">#4000D9FF</color>     <!-- Sombra glow cyan (25% alpha) -->
+    <color name="dialog_scrim">#80000000</color>           <!-- Fondo oscurecido (50% black) -->
+
+    <!-- ============================================= -->
+    <!-- COLORES PARA TOAST PERSONALIZADOS -->
+    <!-- ============================================= -->
+
+    <!-- Toast - Éxito (Verde neón) -->
+    <color name="toast_success_start">#00B09B</color>      <!-- Verde azulado oscuro -->
+    <color name="toast_success_end">#00FF88</color>        <!-- Verde neón claro -->
+    <color name="toast_success_accent">#00FF88</color>     <!-- Barra lateral -->
+
+    <!-- Toast - Error (Rosa rojizo) -->
+    <color name="toast_error_start">#FF416C</color>        <!-- Rojo rosado oscuro -->
+    <color name="toast_error_end">#FF2E63</color>          <!-- Rosa rojizo claro -->
+    <color name="toast_error_accent">#FF2E63</color>       <!-- Barra lateral -->
+
+    <!-- Toast - Advertencia (Ámbar) -->
+    <color name="toast_warning_start">#FF9800</color>      <!-- Naranja oscuro -->
+    <color name="toast_warning_end">#FFB703</color>        <!-- Ámbar claro -->
+    <color name="toast_warning_accent">#FFB703</color>     <!-- Barra lateral -->
+
+    <!-- Toast - Información (Cyan) -->
+    <color name="toast_info_start">#0072FF</color>         <!-- Azul oscuro -->
+    <color name="toast_info_end">#00D9FF</color>           <!-- Cyan claro -->
+    <color name="toast_info_accent">#00D9FF</color>        <!-- Barra lateral -->
+
+    <!-- Toast - Fondo base -->
+    <color name="toast_bg_dark">#1A1A2E</color>            <!-- Fondo oscuro base -->
+    <color name="toast_text_title">#FFFFFF</color>         <!-- Texto título -->
+    <color name="toast_text_message">#E0E0E0</color>       <!-- Texto mensaje -->
+
+    <!-- ============================================= -->
+    <!-- COLORES PARA LOADING DIALOG -->
+    <!-- ============================================= -->
+    <color name="loading_bg_overlay">#80000000</color>     <!-- Fondo semitransparente -->
+    <color name="loading_spinner_primary">#00D9FF</color>  <!-- Color primario del spinner -->
+    <color name="loading_spinner_secondary">#7B2CBF</color> <!-- Color secundario del spinner -->
+    <color name="loading_text_color">#FFFFFF</color>       <!-- Color del texto de carga -->
+
+    <!-- ============================================= -->
+    <!-- COLORES PARA BOTTOM SHEET -->
+    <!-- ============================================= -->
+    <color name="bottom_sheet_bg">#16213E</color>          <!-- Fondo del bottom sheet -->
+    <color name="bottom_sheet_item_bg">#1A1A2E</color>     <!-- Fondo de items -->
+    <color name="bottom_sheet_item_ripple">#4000D9FF</color> <!-- Efecto ripple -->
+    <color name="bottom_sheet_text_primary">#FFFFFF</color> <!-- Texto primario -->
+    <color name="bottom_sheet_text_secondary">#B0B0B0</color> <!-- Texto secundario -->
+    <color name="bottom_sheet_handle">#444444</color>      <!-- Handle superior -->
+</resources>

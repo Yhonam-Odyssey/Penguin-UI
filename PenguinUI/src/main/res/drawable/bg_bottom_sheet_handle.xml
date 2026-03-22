@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Handle superior del Bottom Sheet -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Color gris oscuro -->
+    <solid android:color="@color/bottom_sheet_handle" />
+
+    <!-- Bordes redondeados -->
+    <corners android:radius="2dp" />
+</shape>

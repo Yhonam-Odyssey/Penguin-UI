@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Layout para Loading Dialog - Spinner animado con gradiente -->
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/loadingDialogContainer"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    app:cardBackgroundColor="@color/dialog_bg_secondary"
+    app:cardCornerRadius="24dp"
+    app:cardElevation="8dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="32dp"
+        android:gravity="center_horizontal">
+
+        <!-- Spinner de carga con gradiente animado -->
+        <FrameLayout
+            android:layout_width="64dp"
+            android:layout_height="64dp">
+
+            <!-- Progress bar circular personalizado -->
+            <ProgressBar
+                android:id="@+id/loadingSpinner"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center"
+                android:indeterminate="true"
+                android:indeterminateDrawable="@drawable/progress_spinner_gradient"
+                android:visibility="visible" />
+
+            <!-- Ícono central opcional (puede ser un logo) -->
+            <ImageView
+                android:id="@+id/loadingIcon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_loading"
+                android:contentDescription="Loading icon"
+                android:visibility="visible" />
+
+        </FrameLayout>
+
+        <!-- Mensaje de carga -->
+        <TextView
+            android:id="@+id/loadingMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Cargando..."
+            android:textColor="@color/loading_text_color"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/comic_neu_bold"
+            android:gravity="center"
+            android:maxLines="2"
+            android:ellipsize="end" />
+
+        <!-- Mensaje secundario opcional (detalle adicional) -->
+        <TextView
+            android:id="@+id/loadingSubMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text=""
+            android:textColor="@color/dialog_text_secondary"
+            android:textSize="13sp"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:visibility="gone" />
+
+        <!-- Línea de acento animada (opcional) -->
+        <View
+            android:id="@+id/loadingAccentLine"
+            android:layout_width="60dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_loading_accent_line" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

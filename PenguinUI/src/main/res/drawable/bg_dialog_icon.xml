@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+
+    <!-- Fondo con gradiente circular -->
+    <gradient
+        android:type="radial"
+        android:gradientRadius="50dp"
+        android:startColor="@color/dialog_accent_purple"
+        android:endColor="@color/dialog_button_primary_start" />
+
+    <!-- Borde cyan brillante -->
+    <stroke
+        android:width="2dp"
+        android:color="@color/dialog_accent_cyan" />
+
+    <!-- Tamaño fijo -->
+    <size
+        android:width="60dp"
+        android:height="60dp" />
+</shape>
