@@ -76,9 +76,9 @@
     <color name="toast_info_accent">#00D9FF</color>        <!-- Barra lateral -->
 
     <!-- Toast - Fondo base -->
-    <color name="toast_bg_dark">#1A1A2E</color>            <!-- Fondo oscuro base -->
+    <color name="toast_bg_dark">#20202C</color>            <!-- Fondo oscuro base -->
     <color name="toast_text_title">#FFFFFF</color>         <!-- Texto título -->
-    <color name="toast_text_message">#E0E0E0</color>       <!-- Texto mensaje -->
+    <color name="toast_text_message">#C5C5C5</color>       <!-- Texto mensaje -->
 
     <!-- ============================================= -->
     <!-- COLORES PARA LOADING DIALOG -->

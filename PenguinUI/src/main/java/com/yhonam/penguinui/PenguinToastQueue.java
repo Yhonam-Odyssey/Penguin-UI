@@ -1,10 +1,12 @@
 package com.yhonam.penguinui;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.Gravity;
 
+import java.lang.ref.WeakReference;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -29,23 +31,35 @@ public class PenguinToastQueue {
     // ─── Item interno ──────────────────────────────────────────────────────────
 
     private static class ToastItem {
-        final Context            context;
-        final PenguinToast.Type  type;
-        final String             title;
-        final String             message;
-        final int                duration;
-        final int                gravity;
-        final boolean            withHaptic;
+        final WeakReference<Activity> activityRef;
+        final Context                 appContext;
+        final PenguinToast.Type       type;
+        final String                  title;
+        final String                  message;
+        final int                     duration;
+        final int                     gravity;
+        final boolean                 withHaptic;
 
         ToastItem(Context ctx, PenguinToast.Type type, String title, String message,
                   int duration, int gravity, boolean withHaptic) {
-            this.context    = ctx.getApplicationContext();
-            this.type       = type;
-            this.title      = title;
-            this.message    = message;
-            this.duration   = duration;
-            this.gravity    = gravity;
-            this.withHaptic = withHaptic;
+            Activity activity  = PenguinToast.getActivity(ctx);
+            this.activityRef   = (activity != null) ? new WeakReference<>(activity) : null;
+            this.appContext    = ctx.getApplicationContext();
+            this.type          = type;
+            this.title         = title;
+            this.message       = message;
+            this.duration      = duration;
+            this.gravity       = gravity;
+            this.withHaptic    = withHaptic;
+        }
+
+        /** Devuelve la Activity si sigue viva, o el applicationContext como fallback. */
+        Context resolveContext() {
+            if (activityRef != null) {
+                Activity a = activityRef.get();
+                if (a != null && !a.isFinishing()) return a;
+            }
+            return appContext;
         }
     }
 
@@ -155,10 +169,11 @@ public class PenguinToastQueue {
 
         if (item != null) {
             handler.post(() -> {
+                Context ctx = item.resolveContext();
                 if (item.withHaptic) {
-                    PenguinHaptic.vibrate(item.context, item.type);
+                    PenguinHaptic.vibrate(ctx, item.type);
                 }
-                PenguinToast.show(item.context, item.type, item.title, item.message,
+                PenguinToast.show(ctx, item.type, item.title, item.message,
                         item.duration, item.gravity);
 
                 handler.postDelayed(() -> {

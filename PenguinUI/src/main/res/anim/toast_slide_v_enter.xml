@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- SLIDE_HORIZONTAL: entra rápido desde la izquierda -->
+<!-- SLIDE_VERTICAL: entra desde arriba -->
 <set xmlns:android="http://schemas.android.com/apk/res/android"
     android:interpolator="@android:interpolator/decelerate_cubic">
 
     <translate
-        android:fromXDelta="-110%p"
-        android:toXDelta="0%p"
-        android:duration="220" />
+        android:fromYDelta="-110%p"
+        android:toYDelta="0%p"
+        android:duration="280" />
 
     <alpha
         android:fromAlpha="0.0"
         android:toAlpha="1.0"
-        android:duration="150" />
+        android:duration="180" />
 </set>
