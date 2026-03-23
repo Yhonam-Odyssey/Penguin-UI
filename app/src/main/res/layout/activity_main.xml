@@ -607,5 +607,28 @@
 
         </LinearLayout>
 
+        <!-- ══════════════ SECCIÓN: DEMO ANIMACIONES ══════════════ -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp"
+            android:text="DEMO ANIMACIONES"
+            android:textColor="#00D9FF"
+            android:textSize="11sp"
+            android:letterSpacing="0.15"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnOpenAnimationDemo"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginHorizontal="16dp"
+            android:backgroundTint="#1A2535"
+            android:text="Abrir demo de animaciones de Toast →"
+            android:textColor="#00D9FF"
+            android:textStyle="bold" />
+
     </LinearLayout>
 </ScrollView>

@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212"
+    tools:context=".AnimationActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="32dp">
+
+        <!-- ══════════════════════════════════════════════════════════════
+             HEADER
+        ══════════════════════════════════════════════════════════════ -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Toast · Animaciones"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="20dp"
+            android:text="Demo de todos los estilos y combinaciones"
+            android:textColor="#888888"
+            android:textSize="13sp" />
+
+        <!-- ══════════════════════════════════════════════════════════════
+             1. SHORTCUTS — animación por defecto
+        ══════════════════════════════════════════════════════════════ -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="1 · Shortcuts (animación por defecto)"
+            android:textColor="#00D9FF"
+            android:textSize="12sp"
+            android:textAllCaps="true"
+            android:letterSpacing="0.08" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp">
+
+            <Button
+                android:id="@+id/btnDefaultSuccess"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:text="Success"
+                android:textSize="12sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="#00FF88" />
+
+            <Button
+                android:id="@+id/btnDefaultError"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:text="Error"
+                android:textSize="12sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="#FF2E63" />
+
+            <Button
+                android:id="@+id/btnDefaultWarning"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:text="Warning"
+                android:textSize="12sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="#FFB703" />
+
+            <Button
+                android:id="@+id/btnDefaultInfo"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="Info"
+                android:textSize="12sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="#00D9FF" />
+
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════════════════════════
+             2. BUILDER — 7 tipos de animación
+        ══════════════════════════════════════════════════════════════ -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="8dp"
+            android:text="2 · Builder · PenguinToast.Anim"
+            android:textColor="#00D9FF"
+            android:textSize="12sp"
+            android:textAllCaps="true"
+            android:letterSpacing="0.08" />
+
+        <!-- SLIDE_LEFT_RIGHT -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="6dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="SLIDE_LEFT_RIGHT"
+                android:textColor="#CCCCCC"
+                android:textSize="13sp"
+                android:fontFamily="monospace" />
+
+            <Button
+                android:id="@+id/btnAnimSlideLR_S"
+                android:layout_width="70dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="6dp"
+                android:text="Success"
+                android:textSize="11sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="#00FF88" />
+
+            <Button
+                android:id="@+id/btnAnimSlideLR_E"
+                android:layout_width="60dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="4dp"
+                android:text="Error"
+                android:textSize="11sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="#FF2E63" />
+
+        </LinearLayout>
+
+        <!-- SLIDE_RIGHT_LEFT -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="6dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="SLIDE_RIGHT_LEFT"
+                android:textColor="#CCCCCC"
+                android:textSize="13sp"
+                android:fontFamily="monospace" />
+
+            <Button
+                android:id="@+id/btnAnimSlideRL_W"
+                android:layout_width="70dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="6dp"
+                android:text="Warning"
+                android:textSize="11sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="#FFB703" />
+
+            <Button
+                android:id="@+id/btnAnimSlideRL_I"
+                android:layout_width="60dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="4dp"
+                android:text="Info"
+                android:textSize="11sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="#00D9FF" />
+
+        </LinearLayout>
+
+        <!-- SLIDE_TOP -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="6dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="SLIDE_TOP"
+                android:textColor="#CCCCCC"
+                android:textSize="13sp"
+                android:fontFamily="monospace" />
+
+            <Button
+                android:id="@+id/btnAnimTop_S"
+                android:layout_width="70dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="6dp"
+                android:text="Success"
+                android:textSize="11sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="#00FF88" />
+
+            <Button
+                android:id="@+id/btnAnimTop_E"
+                android:layout_width="60dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="4dp"
+                android:text="Error"
+                android:textSize="11sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="#FF2E63" />
+
+        </LinearLayout>
+
+        <!-- SLIDE_BOTTOM -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="6dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="SLIDE_BOTTOM"
+                android:textColor="#CCCCCC"
+                android:textSize="13sp"
+                android:fontFamily="monospace" />
+
+            <Button
+                android:id="@+id/btnAnimBottom_W"
+                android:layout_width="70dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="6dp"
+                android:text="Warning"
+                android:textSize="11sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="#FFB703" />
+
+            <Button
+                android:id="@+id/btnAnimBottom_I"
+                android:layout_width="60dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="4dp"
+                android:text="Info"
+                android:textSize="11sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="#00D9FF" />
+
+        </LinearLayout>
+
+        <!-- FADE -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="6dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="FADE"
+                android:textColor="#CCCCCC"
+                android:textSize="13sp"
+                android:fontFamily="monospace" />
+
+            <Button
+                android:id="@+id/btnAnimFade_S"
+                android:layout_width="70dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="6dp"
+                android:text="Success"
+                android:textSize="11sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="#00FF88" />
+
+            <Button
+                android:id="@+id/btnAnimFade_E"
+                android:layout_width="60dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="4dp"
+                android:text="Error"
+                android:textSize="11sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="#FF2E63" />
+
+        </LinearLayout>
+
+        <!-- POP -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="6dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="POP"
+                android:textColor="#CCCCCC"
+                android:textSize="13sp"
+                android:fontFamily="monospace" />
+
+            <Button
+                android:id="@+id/btnAnimPop_W"
+                android:layout_width="70dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="6dp"
+                android:text="Warning"
+                android:textSize="11sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="#FFB703" />
+
+            <Button
+                android:id="@+id/btnAnimPop_I"
+                android:layout_width="60dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="4dp"
+                android:text="Info"
+                android:textSize="11sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="#00D9FF" />
+
+        </LinearLayout>
+
+        <!-- BOUNCE -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="6dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="BOUNCE"
+                android:textColor="#CCCCCC"
+                android:textSize="13sp"
+                android:fontFamily="monospace" />
+
+            <Button
+                android:id="@+id/btnAnimBounce_S"
+                android:layout_width="70dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="6dp"
+                android:text="Success"
+                android:textSize="11sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="#00FF88" />
+
+            <Button
+                android:id="@+id/btnAnimBounce_E"
+                android:layout_width="60dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="4dp"
+                android:text="Error"
+                android:textSize="11sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="#FF2E63" />
+
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════════════════════════
+             3. COMBINACIONES — tipo + animación + opciones
+        ══════════════════════════════════════════════════════════════ -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="8dp"
+            android:text="3 · Combinaciones"
+            android:textColor="#00D9FF"
+            android:textSize="12sp"
+            android:textAllCaps="true"
+            android:letterSpacing="0.08" />
+
+        <Button
+            android:id="@+id/btnCombo1"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginBottom="6dp"
+            android:text="Success + BOUNCE + título"
+            android:textSize="13sp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:textColor="#00FF88" />
+
+        <Button
+            android:id="@+id/btnCombo2"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginBottom="6dp"
+            android:text="Error + FADE + duración larga"
+            android:textSize="13sp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:textColor="#FF2E63" />
+
+        <Button
+            android:id="@+id/btnCombo3"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginBottom="6dp"
+            android:text="Warning + POP + título"
+            android:textSize="13sp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:textColor="#FFB703" />
+
+        <Button
+            android:id="@+id/btnCombo4"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginBottom="6dp"
+            android:text="Info + SLIDE_BOTTOM + gravity bottom"
+            android:textSize="13sp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:textColor="#00D9FF" />
+
+        <!-- ══════════════════════════════════════════════════════════════
+             4. GLOBAL DEFAULT — cambiar el default en runtime
+        ══════════════════════════════════════════════════════════════ -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="8dp"
+            android:text="4 · setDefaultAnimation() global"
+            android:textColor="#00D9FF"
+            android:textSize="12sp"
+            android:textAllCaps="true"
+            android:letterSpacing="0.08" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="Cambia el default y luego presiona cualquier shortcut de la sección 1 para ver el efecto."
+            android:textColor="#888888"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp">
+
+            <Button
+                android:id="@+id/btnSetDefaultSlide"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:text="SLIDE"
+                android:textSize="11sp"
+                android:backgroundTint="#1A1A2E"
+                app:strokeColor="#00D9FF"
+                app:strokeWidth="1dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/btnSetDefaultFade"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:text="FADE"
+                android:textSize="11sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/btnSetDefaultPop"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:text="POP"
+                android:textSize="11sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/btnSetDefaultBounce"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:text="BOUNCE"
+                android:textSize="11sp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvCurrentDefault"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Default actual: SLIDE_LEFT_RIGHT"
+            android:textColor="#555555"
+            android:textSize="12sp"
+            android:fontFamily="monospace" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

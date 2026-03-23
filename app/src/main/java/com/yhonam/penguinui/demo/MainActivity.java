@@ -1,5 +1,6 @@
 package com.yhonam.penguinui.demo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         setupHapticButtons();
         setupFacadeButtons();
         setupThemeButtons();
+        setupNavigationButtons();
     }
 
     // ═══════════════════════════════════════════════════════════════════════════
@@ -78,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                 PenguinToast.showInfo(this, "Hay una actualización disponible"));
 
         btnCustom.setOnClickListener(v ->
-                PenguinToast.showSuccess(this, "¡Guardado!", "Tu perfil fue actualizado correctamente"));
+                PenguinToast.info(this, "mesand").show());
     }
 
     // ═══════════════════════════════════════════════════════════════════════════
@@ -370,5 +372,14 @@ public class MainActivity extends AppCompatActivity {
                                 () -> PenguinUI.warning(this, "Opción B seleccionada"))
                         .build()
                         .show(getSupportFragmentManager(), "facade_sheet"));
+    }
+
+    // ═══════════════════════════════════════════════════════════════════════════
+    //  NAVEGACIÓN — ir a demos especializados
+    // ═══════════════════════════════════════════════════════════════════════════
+
+    private void setupNavigationButtons() {
+        findViewById(R.id.btnOpenAnimationDemo).setOnClickListener(v ->
+                startActivity(new Intent(this, AnimationActivity.class)));
     }
 }
