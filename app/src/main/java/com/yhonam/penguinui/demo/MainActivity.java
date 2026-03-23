@@ -1,6 +1,4 @@
-package com.yhonam.penguinui;
-
-import com.yhonam.penguinui.demo.R;
+package com.yhonam.penguinui.demo;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,9 +11,18 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.yhonam.penguinui.PenguinDialog;
+import com.yhonam.penguinui.PenguinHaptic;
+import com.yhonam.penguinui.PenguinInfoDialog;
+import com.yhonam.penguinui.PenguinLoadingDialog;
+import com.yhonam.penguinui.PenguinSheet;
+import com.yhonam.penguinui.PenguinToast;
+import com.yhonam.penguinui.PenguinToastQueue;
+import com.yhonam.penguinui.PenguinUI;
+
 /**
  * MainActivity - Demo interactiva de todos los componentes de Penguin UI
- *
+
  * Cada sección demuestra cómo usar las clases de la librería,
  * tanto con los accesos directos de PenguinUI (fachada) como
  * con las clases individuales (PenguinToast, PenguinDialog, etc.)

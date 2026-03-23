@@ -53,6 +53,34 @@ public final class PenguinUI {
     private PenguinUI() {}
 
     // ═══════════════════════════════════════════════════════════════════════════
+    //  TEMA
+    // ═══════════════════════════════════════════════════════════════════════════
+
+    /**
+     * Configurar el tema global de PenguinUI.
+     * Llamar una vez al inicio (Application.onCreate o primer Activity).
+     * Sin llamar a este método, se usa el preset NEO (comportamiento v1.0).
+     *
+     * Ejemplo:
+     *   PenguinUI.setTheme(
+     *       PenguinTheme.builder()
+     *           .preset(PenguinTheme.Preset.GLASS)
+     *           .backgroundAlpha(0.8f)
+     *           .accentColor(ContextCompat.getColor(this, R.color.mi_color))
+     *           .cornerRadius(PenguinTheme.Radius.SOFT)
+     *           .build()
+     *   );
+     */
+    public static void setTheme(PenguinTheme theme) {
+        PenguinTheme.apply(theme);
+    }
+
+    /** Volver al tema por defecto (preset NEO). */
+    public static void resetTheme() {
+        PenguinTheme.reset();
+    }
+
+    // ═══════════════════════════════════════════════════════════════════════════
     //  TOASTS
     // ═══════════════════════════════════════════════════════════════════════════
 

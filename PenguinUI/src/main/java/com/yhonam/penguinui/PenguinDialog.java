@@ -17,6 +17,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 
 /**
@@ -176,6 +178,7 @@ public class PenguinDialog extends DialogFragment {
 
         setupContent();
         setupButtons();
+        applyTheme(view);
     }
 
     @NonNull
@@ -212,6 +215,33 @@ public class PenguinDialog extends DialogFragment {
             if (cancelListener != null) cancelListener.onCancel();
             dismiss();
         });
+    }
+
+    private void applyTheme(View root) {
+        PenguinTheme theme = PenguinTheme.get();
+        if (theme.getPreset() == PenguinTheme.Preset.NEO
+                && !theme.hasBackgroundColor()
+                && !theme.hasTextPrimaryColor()
+                && !theme.hasTextSecondaryColor()) return; // NEO puro: sin cambios
+
+        CardView container = root.findViewById(R.id.dialogContainer);
+        float density = getResources().getDisplayMetrics().density;
+
+        // Fondo
+        int bgColor = ContextCompat.getColor(requireContext(), R.color.dialog_bg_secondary);
+        if (theme.hasBackgroundColor()) bgColor = theme.getBackgroundColor();
+        if (theme.isGlass()) {
+            bgColor = PenguinTheme.applyAlpha(bgColor, theme.getBackgroundAlpha());
+            container.setCardElevation(0);
+        }
+        container.setCardBackgroundColor(bgColor);
+
+        // Radio de esquinas
+        container.setRadius(theme.getCornerRadiusDp() * density);
+
+        // Texto
+        if (theme.hasTextPrimaryColor())   dialogTitle.setTextColor(theme.getTextPrimaryColor());
+        if (theme.hasTextSecondaryColor()) dialogMessage.setTextColor(theme.getTextSecondaryColor());
     }
 
     private void setupWindow(Dialog dialog) {

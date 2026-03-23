@@ -13,8 +13,11 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
+import android.graphics.drawable.GradientDrawable;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -103,6 +106,7 @@ public class PenguinSheet extends BottomSheetDialogFragment {
         btnCancel         = view.findViewById(R.id.btnCancel);
 
         setupContent();
+        applyTheme(view);
         btnCancel.setOnClickListener(v -> dismiss());
     }
 
@@ -157,6 +161,34 @@ public class PenguinSheet extends BottomSheetDialogFragment {
     }
 
     // ─── Interno ───────────────────────────────────────────────────────────────
+
+    private void applyTheme(View root) {
+        PenguinTheme theme = PenguinTheme.get();
+        if (theme.getPreset() == PenguinTheme.Preset.NEO
+                && !theme.hasBackgroundColor()
+                && !theme.hasTextPrimaryColor()) return;
+
+        View container = root.findViewById(R.id.bottomSheetContainer);
+        float density = getResources().getDisplayMetrics().density;
+
+        // Fondo — BottomSheet usa LinearLayout, reconstruimos el drawable
+        if (theme.isGlass() || theme.hasBackgroundColor()) {
+            int bgColor = ContextCompat.getColor(requireContext(), R.color.bottom_sheet_bg);
+            if (theme.hasBackgroundColor()) bgColor = theme.getBackgroundColor();
+            if (theme.isGlass()) bgColor = PenguinTheme.applyAlpha(bgColor, theme.getBackgroundAlpha());
+
+            float r = theme.getCornerRadiusDp() * density;
+            GradientDrawable bg = new GradientDrawable();
+            bg.setColor(bgColor);
+            // Solo esquinas superiores redondeadas (el sheet sale desde abajo)
+            bg.setCornerRadii(new float[]{r, r, r, r, 0, 0, 0, 0});
+            container.setBackground(bg);
+        }
+
+        // Título
+        if (theme.hasTextPrimaryColor() && sheetTitle != null)
+            sheetTitle.setTextColor(theme.getTextPrimaryColor());
+    }
 
     private void setupContent() {
         if (title != null && !title.isEmpty()) {

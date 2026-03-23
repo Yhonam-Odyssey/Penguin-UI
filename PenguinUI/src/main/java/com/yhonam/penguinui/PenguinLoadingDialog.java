@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 
@@ -116,6 +117,7 @@ public class PenguinLoadingDialog extends DialogFragment {
         loadingSubMessage = view.findViewById(R.id.loadingSubMessage);
         loadingAccentLine = view.findViewById(R.id.loadingAccentLine);
         setupContent();
+        applyTheme(view);
     }
 
     @NonNull
@@ -185,6 +187,42 @@ public class PenguinLoadingDialog extends DialogFragment {
     }
 
     // ─── Interno ───────────────────────────────────────────────────────────────
+
+    private void applyTheme(android.view.View root) {
+        PenguinTheme theme = PenguinTheme.get();
+        if (theme.getPreset() == PenguinTheme.Preset.NEO
+                && !theme.hasBackgroundColor()
+                && !theme.hasAccentColor()
+                && !theme.hasTextPrimaryColor()
+                && !theme.hasTextSecondaryColor()) return;
+
+        CardView container = root.findViewById(R.id.loadingDialogContainer);
+        float density = getResources().getDisplayMetrics().density;
+
+        // Fondo
+        int bgColor = ContextCompat.getColor(requireContext(), R.color.dialog_bg_secondary);
+        if (theme.hasBackgroundColor()) bgColor = theme.getBackgroundColor();
+        if (theme.isGlass()) {
+            bgColor = PenguinTheme.applyAlpha(bgColor, theme.getBackgroundAlpha());
+            container.setCardElevation(0);
+        }
+        container.setCardBackgroundColor(bgColor);
+
+        // Radio de esquinas
+        container.setRadius(theme.getCornerRadiusDp() * density);
+
+        // Color del spinner
+        if (theme.hasAccentColor() && loadingSpinner != null) {
+            loadingSpinner.getIndeterminateDrawable()
+                    .setColorFilter(theme.getAccentColor(), android.graphics.PorterDuff.Mode.SRC_IN);
+        }
+
+        // Texto
+        if (theme.hasTextPrimaryColor() && loadingMessage != null)
+            loadingMessage.setTextColor(theme.getTextPrimaryColor());
+        if (theme.hasTextSecondaryColor() && loadingSubMessage != null)
+            loadingSubMessage.setTextColor(theme.getTextSecondaryColor());
+    }
 
     private void setupContent() {
         if (message != null && !message.isEmpty()) loadingMessage.setText(message);

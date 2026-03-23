@@ -2,6 +2,7 @@ package com.yhonam.penguinui;
 
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -126,31 +127,7 @@ public class PenguinToast {
      */
     public static void show(Context context, Type type, String title, String message,
                             int durationSeconds, int gravity) {
-        LayoutInflater inflater = LayoutInflater.from(context);
-        View layout = inflater.inflate(R.layout.layout_custom_toast, null);
-
-        CardView toastContainer = layout.findViewById(R.id.toastContainer);
-        ImageView toastIcon     = layout.findViewById(R.id.toastIcon);
-        TextView toastTitle     = layout.findViewById(R.id.toastTitle);
-        TextView toastMessage   = layout.findViewById(R.id.toastMessage);
-        View accentBar          = layout.findViewById(R.id.toastAccentBar);
-
-        toastContainer.setCardBackgroundColor(
-                context.getResources().getColor(R.color.toast_bg_dark, null));
-
-        toastIcon.setImageResource(type.iconRes);
-
-        String actualTitle = (title != null && !title.isEmpty()) ? title : type.defaultTitle;
-        toastTitle.setText(actualTitle);
-        toastMessage.setText(message);
-
-        int accentColor = context.getResources().getColor(type.accentColor, null);
-        GradientDrawable accentDrawable = new GradientDrawable();
-        accentDrawable.setShape(GradientDrawable.RECTANGLE);
-        accentDrawable.setColor(accentColor);
-        accentDrawable.setCornerRadius(6);
-        accentBar.setBackground(accentDrawable);
-
+        View layout = buildLayout(context, type, title, message);
         Toast toast = new Toast(context);
         toast.setDuration(durationSeconds <= 2 ? Toast.LENGTH_SHORT : Toast.LENGTH_LONG);
         toast.setView(layout);
@@ -163,34 +140,63 @@ public class PenguinToast {
      */
     public static void showCustom(Context context, Type type, String title, String message,
                                   int gravity, int yOffset) {
-        LayoutInflater inflater = LayoutInflater.from(context);
-        View layout = inflater.inflate(R.layout.layout_custom_toast, null);
+        View layout = buildLayout(context, type, title, message);
+        Toast toast = new Toast(context);
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(layout);
+        toast.setGravity(gravity, 0, yOffset);
+        toast.show();
+    }
 
-        CardView toastContainer = layout.findViewById(R.id.toastContainer);
-        ImageView toastIcon     = layout.findViewById(R.id.toastIcon);
-        TextView toastTitle     = layout.findViewById(R.id.toastTitle);
-        TextView toastMessage   = layout.findViewById(R.id.toastMessage);
-        View accentBar          = layout.findViewById(R.id.toastAccentBar);
+    // ─── INTERNO ───────────────────────────────────────────────────────────────
 
-        toastContainer.setCardBackgroundColor(
-                context.getResources().getColor(R.color.toast_bg_dark, null));
+    private static View buildLayout(Context context, Type type, String title, String message) {
+        View layout = LayoutInflater.from(context).inflate(R.layout.layout_custom_toast, null);
+
+        CardView  toastContainer = layout.findViewById(R.id.toastContainer);
+        ImageView toastIcon      = layout.findViewById(R.id.toastIcon);
+        TextView  toastTitle     = layout.findViewById(R.id.toastTitle);
+        TextView  toastMessage   = layout.findViewById(R.id.toastMessage);
+        View      accentBar      = layout.findViewById(R.id.toastAccentBar);
 
         toastIcon.setImageResource(type.iconRes);
         String actualTitle = (title != null && !title.isEmpty()) ? title : type.defaultTitle;
         toastTitle.setText(actualTitle);
         toastMessage.setText(message);
 
-        int accentColor = context.getResources().getColor(type.accentColor, null);
+        applyTheme(context, type, toastContainer, toastTitle, toastMessage, accentBar);
+        return layout;
+    }
+
+    private static void applyTheme(Context context, Type type, CardView container,
+                                   TextView titleView, TextView messageView, View accentBar) {
+        PenguinTheme theme = PenguinTheme.get();
+        float density = context.getResources().getDisplayMetrics().density;
+
+        // Fondo del card
+        int bgColor = context.getResources().getColor(R.color.toast_bg_dark, null);
+        if (theme.hasBackgroundColor()) bgColor = theme.getBackgroundColor();
+        if (theme.isGlass()) {
+            bgColor = PenguinTheme.applyAlpha(bgColor, theme.getBackgroundAlpha());
+            container.setCardElevation(0);
+        }
+        container.setCardBackgroundColor(bgColor);
+
+        // Radio de esquinas
+        container.setRadius(theme.getCornerRadiusDp() * density);
+
+        // Barra de acento lateral
+        int accentColorInt = theme.hasAccentColor()
+                ? theme.getAccentColor()
+                : context.getResources().getColor(type.accentColor, null);
         GradientDrawable accentDrawable = new GradientDrawable();
         accentDrawable.setShape(GradientDrawable.RECTANGLE);
-        accentDrawable.setColor(accentColor);
-        accentDrawable.setCornerRadius(6);
+        accentDrawable.setColor(accentColorInt);
+        accentDrawable.setCornerRadius(4 * density);
         accentBar.setBackground(accentDrawable);
 
-        Toast toast = new Toast(context);
-        toast.setDuration(Toast.LENGTH_LONG);
-        toast.setView(layout);
-        toast.setGravity(gravity, 0, yOffset);
-        toast.show();
+        // Colores de texto
+        if (theme.hasTextPrimaryColor())   titleView.setTextColor(theme.getTextPrimaryColor());
+        if (theme.hasTextSecondaryColor()) messageView.setTextColor(theme.getTextSecondaryColor());
     }
 }
