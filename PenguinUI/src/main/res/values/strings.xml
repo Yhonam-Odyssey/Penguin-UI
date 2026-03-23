@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="txt_susses">susses</string>
+    <string name="txt_error">error</string>
+    <string name="txt_info">info</string>
+    <string name="txt_warning">warning</string>
+
+    <string name="txt_tittle">tittle</string>
+    <string name="txt_message">message</string>
+    <string name="txt_description">description</string>
+
+    <string name="des_icon_toast">icono toast</string>
+</resources>

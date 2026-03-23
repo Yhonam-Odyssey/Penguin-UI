@@ -5,6 +5,8 @@
     <dimen name="penguin_toast_margin">16dp</dimen>
     <dimen name="penguin_toast_corner_radius">12dp</dimen>
     <dimen name="penguin_toast_accent_bar_width">4dp</dimen>
+    <dimen name="penguin_toast_message_size">12sp</dimen>
+    <dimen name="penguin_toast_tittle_size">14sp</dimen>
 
     <!-- Dialog -->
     <dimen name="penguin_dialog_corner_radius">16dp</dimen>
