@@ -24,7 +24,7 @@ public class PenguinToastQueue {
     private static final Queue<ToastItem> queue   = new LinkedList<>();
     private static final Handler          handler = new Handler(Looper.getMainLooper());
     private static       boolean          isShowing = false;
-    private static       int              DELAY_MS  = 500;
+    private static volatile int           DELAY_MS  = 500;
 
     // ─── Item interno ──────────────────────────────────────────────────────────
 
@@ -162,8 +162,10 @@ public class PenguinToastQueue {
                         item.duration, item.gravity);
 
                 handler.postDelayed(() -> {
-                    isShowing = false;
-                    processQueue();
+                    synchronized (PenguinToastQueue.class) {
+                        isShowing = false;
+                        processQueue();
+                    }
                 }, (long) item.duration * 1000 + DELAY_MS);
             });
         }

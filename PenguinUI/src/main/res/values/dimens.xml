@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Toast -->
+    <dimen name="penguin_toast_min_width">300dp</dimen>
+    <dimen name="penguin_toast_margin">16dp</dimen>
+    <dimen name="penguin_toast_corner_radius">12dp</dimen>
+    <dimen name="penguin_toast_accent_bar_width">4dp</dimen>
+
+    <!-- Dialog -->
+    <dimen name="penguin_dialog_corner_radius">16dp</dimen>
+    <dimen name="penguin_dialog_padding">24dp</dimen>
+    <dimen name="penguin_dialog_icon_size">56dp</dimen>
+    <dimen name="penguin_dialog_button_height">44dp</dimen>
+    <dimen name="penguin_dialog_button_corner_radius">8dp</dimen>
+
+    <!-- Bottom Sheet -->
+    <dimen name="penguin_sheet_corner_radius">20dp</dimen>
+    <dimen name="penguin_sheet_item_height">56dp</dimen>
+    <dimen name="penguin_sheet_handle_width">40dp</dimen>
+    <dimen name="penguin_sheet_handle_height">4dp</dimen>
+
+    <!-- Loading -->
+    <dimen name="penguin_loading_icon_size">48dp</dimen>
+    <dimen name="penguin_loading_accent_line_height">3dp</dimen>
+</resources>

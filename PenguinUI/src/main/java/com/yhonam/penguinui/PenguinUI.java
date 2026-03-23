@@ -58,38 +58,46 @@ public final class PenguinUI {
 
     /** Toast de éxito (verde) */
     public static void success(Context context, String message) {
+        if (context == null || message == null) return;
         PenguinToast.showSuccess(context, message);
     }
 
     public static void success(Context context, String title, String message) {
-        PenguinToast.showSuccess(context, title, message);
+        if (context == null || message == null) return;
+        PenguinToast.showSuccess(context, title != null ? title : "", message);
     }
 
     /** Toast de error (rojo) */
     public static void error(Context context, String message) {
+        if (context == null || message == null) return;
         PenguinToast.showError(context, message);
     }
 
     public static void error(Context context, String title, String message) {
-        PenguinToast.showError(context, title, message);
+        if (context == null || message == null) return;
+        PenguinToast.showError(context, title != null ? title : "", message);
     }
 
     /** Toast de advertencia (amarillo) */
     public static void warning(Context context, String message) {
+        if (context == null || message == null) return;
         PenguinToast.showWarning(context, message);
     }
 
     public static void warning(Context context, String title, String message) {
-        PenguinToast.showWarning(context, title, message);
+        if (context == null || message == null) return;
+        PenguinToast.showWarning(context, title != null ? title : "", message);
     }
 
     /** Toast de información (cian) */
     public static void info(Context context, String message) {
+        if (context == null || message == null) return;
         PenguinToast.showInfo(context, message);
     }
 
     public static void info(Context context, String title, String message) {
-        PenguinToast.showInfo(context, title, message);
+        if (context == null || message == null) return;
+        PenguinToast.showInfo(context, title != null ? title : "", message);
     }
 
     // ═══════════════════════════════════════════════════════════════════════════
@@ -101,42 +109,42 @@ public final class PenguinUI {
      * Llama a .setOnConfirmListener() y luego .show(fm, tag)
      */
     public static PenguinDialog confirmDialog(String title, String message) {
-        return PenguinDialog.confirm(title, message);
+        return PenguinDialog.confirm(title != null ? title : "", message != null ? message : "");
     }
 
     /**
      * Diálogo de eliminación (Eliminar / Cancelar)
      */
     public static PenguinDialog deleteDialog(String title, String message) {
-        return PenguinDialog.delete(title, message);
+        return PenguinDialog.delete(title != null ? title : "", message != null ? message : "");
     }
 
     /**
      * Diálogo de advertencia (Aceptar / Cancelar)
      */
     public static PenguinDialog warningDialog(String title, String message) {
-        return PenguinDialog.warning(title, message);
+        return PenguinDialog.warning(title != null ? title : "", message != null ? message : "");
     }
 
     /**
      * Diálogo de cierre de sesión
      */
     public static PenguinDialog logoutDialog(String title, String message) {
-        return PenguinDialog.logout(title, message);
+        return PenguinDialog.logout(title != null ? title : "", message != null ? message : "");
     }
 
     /**
      * Diálogo informativo con un solo botón "Aceptar" — éxito
      */
     public static PenguinInfoDialog infoDialog(String title, String message) {
-        return PenguinInfoDialog.info(title, message);
+        return PenguinInfoDialog.info(title != null ? title : "", message != null ? message : "");
     }
 
     /**
      * Diálogo de éxito informativo
      */
     public static PenguinInfoDialog successDialog(String title, String message) {
-        return PenguinInfoDialog.success(title, message);
+        return PenguinInfoDialog.success(title != null ? title : "", message != null ? message : "");
     }
 
     // ═══════════════════════════════════════════════════════════════════════════
@@ -149,13 +157,15 @@ public final class PenguinUI {
      * Llama a loading.dismiss() al terminar.
      */
     public static PenguinLoadingDialog loading(String message) {
-        PenguinLoadingDialog dialog = PenguinLoadingDialog.newInstance(message);
+        PenguinLoadingDialog dialog = PenguinLoadingDialog.newInstance(message != null ? message : "");
         dialog.setCancelable(false);
         return dialog;
     }
 
     public static PenguinLoadingDialog loading(String message, String subMessage) {
-        PenguinLoadingDialog dialog = PenguinLoadingDialog.newInstance(message, subMessage);
+        PenguinLoadingDialog dialog = PenguinLoadingDialog.newInstance(
+                message != null ? message : "",
+                subMessage != null ? subMessage : "");
         dialog.setCancelable(false);
         return dialog;
     }
@@ -174,15 +184,15 @@ public final class PenguinUI {
      *       .show(getSupportFragmentManager(), "sheet");
      */
     public static PenguinSheet.Builder sheet(String title) {
-        return new PenguinSheet.Builder().setTitle(title);
+        return new PenguinSheet.Builder().setTitle(title != null ? title : "");
     }
 
     // ═══════════════════════════════════════════════════════════════════════════
     //  HAPTIC
     // ═══════════════════════════════════════════════════════════════════════════
 
-    public static void hapticSuccess(Context context) { PenguinHaptic.vibrateSuccess(context); }
-    public static void hapticError(Context context)   { PenguinHaptic.vibrateError(context);   }
-    public static void hapticWarning(Context context) { PenguinHaptic.vibrateWarning(context);  }
-    public static void hapticInfo(Context context)    { PenguinHaptic.vibrateInfo(context);     }
+    public static void hapticSuccess(Context context) { if (context != null) PenguinHaptic.vibrateSuccess(context); }
+    public static void hapticError(Context context)   { if (context != null) PenguinHaptic.vibrateError(context);   }
+    public static void hapticWarning(Context context) { if (context != null) PenguinHaptic.vibrateWarning(context); }
+    public static void hapticInfo(Context context)    { if (context != null) PenguinHaptic.vibrateInfo(context);    }
 }
