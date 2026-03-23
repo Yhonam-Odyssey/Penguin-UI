@@ -32,8 +32,8 @@ android {
 publishing {
     publications {
         release(MavenPublication) {
-            groupId = 'com.gitlab.library-yhonam'
-            artifactId = 'penguin-ui-android'
+            groupId = 'com.github.Yhonam-Odyssey'
+            artifactId = 'Penguin-UI'
             version = '1.0.0'
 
             afterEvaluate {
