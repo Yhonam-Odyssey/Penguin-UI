@@ -18,6 +18,7 @@ import com.yhonam.penguinui.PenguinLoadingDialog;
 import com.yhonam.penguinui.PenguinSheet;
 import com.yhonam.penguinui.PenguinToast;
 import com.yhonam.penguinui.PenguinToastQueue;
+import com.yhonam.penguinui.PenguinTheme;
 import com.yhonam.penguinui.PenguinUI;
 
 /**
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         setupSheetButtons();
         setupHapticButtons();
         setupFacadeButtons();
+        setupThemeButtons();
     }
 
     // ═══════════════════════════════════════════════════════════════════════════
@@ -282,6 +284,61 @@ public class MainActivity extends AppCompatActivity {
         btnCritical.setOnClickListener(v -> {
             PenguinHaptic.vibrateCritical(this);
             PenguinToast.showInfo(this, "Vibración triple — crítico");
+        });
+    }
+
+    // ═══════════════════════════════════════════════════════════════════════════
+    //  PENGUIN THEME — sistema de temas centralizado
+    // ═══════════════════════════════════════════════════════════════════════════
+
+    private void setupThemeButtons() {
+        Button btnNeo         = findViewById(R.id.btnThemeNeo);
+        Button btnGlass       = findViewById(R.id.btnThemeGlass);
+        Button btnGlassAccent = findViewById(R.id.btnThemeGlassAccent);
+        Button btnDemo        = findViewById(R.id.btnThemeDemo);
+
+        // NEO — default, igual a v1.0
+        btnNeo.setOnClickListener(v -> {
+            PenguinUI.resetTheme();
+            PenguinToast.showSuccess(this, "Tema NEO activo",
+                    "Estilo oscuro con bordes neón (default)");
+        });
+
+        // GLASS 75% — fondo semitransparente
+        btnGlass.setOnClickListener(v -> {
+            PenguinUI.setTheme(
+                PenguinTheme.builder()
+                    .preset(PenguinTheme.Preset.GLASS)
+                    .backgroundAlpha(0.75f)
+                    .cornerRadius(PenguinTheme.Radius.SOFT)
+                    .build()
+            );
+            PenguinToast.showInfo(this, "Tema GLASS activo",
+                    "Fondos semitransparentes al 75%");
+        });
+
+        // GLASS con acento morado y esquinas rectas
+        btnGlassAccent.setOnClickListener(v -> {
+            PenguinUI.setTheme(
+                PenguinTheme.builder()
+                    .preset(PenguinTheme.Preset.GLASS)
+                    .backgroundAlpha(0.55f)
+                    .accentColor(0xFF6200EE)           // morado Material
+                    .cornerRadius(PenguinTheme.Radius.SHARP)
+                    .build()
+            );
+            PenguinToast.showInfo(this, "Tema GLASS + Acento activo",
+                    "Morado, 55% opaco, esquinas rectas");
+        });
+
+        // Demo — muestra toast + dialog con el tema actualmente activo
+        btnDemo.setOnClickListener(v -> {
+            PenguinToast.showSuccess(this, "Toast con tema activo");
+            new Handler(Looper.getMainLooper()).postDelayed(() ->
+                PenguinDialog.confirm("Tema aplicado", "Este dialog usa el tema que seleccionaste.")
+                    .setOnConfirmListener(() ->
+                        PenguinToast.showInfo(this, "Confirmado con tema activo"))
+                    .show(getSupportFragmentManager(), "theme_demo"), 600);
         });
     }
 

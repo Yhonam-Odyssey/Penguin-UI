@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#0F1923"
     android:fillViewport="true"
-    tools:context="com.yhonam.penguinui.MainActivity">
+    tools:context="com.yhonam.penguinui.demo.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -533,6 +533,78 @@
                 android:text="PenguinUI.sheet(...).build().show()"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- ══════════════ SECCIÓN: PENGUIN THEME ══════════════ -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp"
+            android:text="PENGUIN THEME (SISTEMA DE TEMAS)"
+            android:textColor="#00D9FF"
+            android:textSize="11sp"
+            android:letterSpacing="0.15"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="16dp"
+            android:background="#1A2535"
+            android:layout_marginHorizontal="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="Cambia el tema y luego toca cualquier componente arriba para ver el efecto."
+                android:textColor="#B0B0B0"
+                android:textSize="12sp"
+                android:gravity="center" />
+
+            <Button
+                android:id="@+id/btnThemeNeo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#0F3460"
+                android:text="🔵  NEO (Default) — restaurar"
+                android:textColor="#00D9FF"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnThemeGlass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="#1A2535"
+                android:text="🪟  GLASS 75% — semitransparente"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnThemeGlassAccent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="#6200EE"
+                android:text="🎨  GLASS + acento morado + esquinas rectas"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnThemeDemo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="#00FF88"
+                android:text="Mostrar Toast + Dialog con tema activo"
+                android:textColor="#0F1923"
+                android:textStyle="bold" />
+
         </LinearLayout>
 
     </LinearLayout>
